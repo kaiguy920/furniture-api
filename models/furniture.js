@@ -13,9 +13,9 @@ const { Schema, model } = mongoose
 // make our furniture schema
 const furnitureSchema = new Schema({
     type: { type: String },
-    color: { type: String },
+    roomLocation: { type: String },
     material: { type: String },
-    seats: { type: Number },
+    accomodates: { type: Number }
 })
 
 // make our furniture model

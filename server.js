@@ -28,10 +28,8 @@ middleware(app)
 // Routes
 ////////////////////////////////////////////
 // register our routes here
-// send all '/fruits' routes to the Fruit Router
-app.use('/fruits', FruitRouter)
-app.use('/comments', CommentRouter)
-app.use('/user', UserRouter)
+// send all '/furniture' routes to the Furniture Router
+app.use('/furniture', FurnitureRouter)
 app.use('/', HomeRouter)
 
 // old home, now we're using homerouter

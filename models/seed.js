@@ -2,7 +2,7 @@
 //                  IMPORT DEPENDENCIES
 //=======================================================
 const mongoose = require("./connection");
-const Fruit = require("./fruit");
+const Furniture = require("./furniture");
 
 //=======================================================
 //                      SEED CODE
@@ -12,20 +12,20 @@ const Fruit = require("./fruit");
 const db = mongoose.connection;
 
 db.on('open', () => {
-    console.log('hittt')
-    const startFruits = [
-        { name: "Orange", color: "orange", readyToEat: false },
-        { name: "Grape", color: "purple", readyToEat: false },
-        { name: "Banana", color: "orange", readyToEat: false },
-        { name: "Strawberry", color: "red", readyToEat: false },
-        { name: "Coconut", color: "brown", readyToEat: false },
+    const startFurniture = [
+        { type: "couch", roomLocation: "living room", material: 'satin', accomodates: 4 },
+        { type: "table", roomLocation: "kitchen", material: 'wood', accomodates: 6 },
+        { type: "dresser", roomLocation: "bedroom", material: 'wood', accomodates: 2 },
+        { type: "tv stand", roomLocation: "living room", material: 'wood', accomodates: 1 },
+        { type: "nightstand", roomLocation: "bedroom", material: 'wood', accomodates: 1 },
+        { type: "bookcase", roomLocation: "office", material: 'plywood', accomodates: 2 },
     ]
 
-    Fruit.remove({})
-        .then(deletedFruits => {
-            console.log("this is what remove returns", deletedFruits)
+    Furniture.remove({})
+        .then(deletedFurniture => {
+            console.log("this is what remove returns", deletedFurniture)
             // then we create with our seed data
-            Fruit.create(startFruits)
+            Furniture.create(startFurniture)
                 .then(data => {
                     console.log('here are the new seed fruits', data);
                     db.close()
