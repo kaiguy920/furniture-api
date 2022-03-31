@@ -87,22 +87,12 @@ router.post('/', (req, res) => {
 // UPDATE
 // PATCH /furniture/624470c12ed7079ead53d4df
 
-// router.patch('/:id', (req, res) => {
-//     // get the id
-//     const fruitId = req.params.id
-//     // check and assign the readyToEat property with the correct value
-//     req.body.readyToEat = req.body.readyToEat === 'on' ? true : false
-//     // tell mongoose to update the fruit
-//     Fruit.findByIdAndUpdate(fruitId, req.body, { new: true })
-//         // if successful -> redirect to the fruit page
-//         .then((fruit) => {
-//             console.log('the updated fruit', fruit)
-
-//             res.redirect(`/fruits/${fruit.id}`)
-//         })
-//         // if an error, display that
-//         .catch((error) => res.json(error))
-// })
+router.patch('/:id', (req, res) => {
+    const furnitureId = req.params.id
+    Furniture.findByIdAndUpdate(furnitureId, req.body, { new: true })
+        .then(() => res.sendStatus(204))
+        .catch((error) => res.json(error))
+})
 
 
 
