@@ -1,7 +1,7 @@
 /////////////////////////////////
 // import dependencies
 /////////////////////////////////
-const mongoose = require('./connection')
+const mongoose = require('mongoose')
 
 /////////////////////////////////
 // define our furniture model
