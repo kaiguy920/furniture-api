@@ -16,21 +16,21 @@ const router = express.Router()
 
 // INDEX
 // GET /furniture
-// router.get('/', (req, res) => {
-//     // find the furniture
-//     Furniture.find({})
-//         // then render a template AFTER they're found
-//         .then((furniture) => {
-//             // console.log(furniture)
-// return furniture.map(furniture => furniture.toObject())
-//         })
-//      .then(furniture => res.status(200).json({ furniture: furniture }))
-//         // show an error if there is one
-//         .catch((error) => {
-//             console.log(error)
-//             res.json({ error })
-//         })
-// })
+router.get('/', (req, res) => {
+    // find the furniture
+    Furniture.find({})
+        // then render a template AFTER they're found
+        .then((furniture) => {
+            // console.log(furniture)
+            return furniture.map(furniture => furniture.toObject())
+        })
+        .then(furniture => res.status(200).json({ furniture: furniture }))
+        // show an error if there is one
+        .catch((error) => {
+            console.log(error)
+            res.json({ error })
+        })
+})
 
 // SHOW
 // GET /furniture/624470c12ed7079ead53d4df
