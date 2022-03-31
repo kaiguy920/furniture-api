@@ -109,19 +109,17 @@ router.post('/', (req, res) => {
 // REMOVE
 // DELETE /furniture/624470c12ed7079ead53d4df
 
-// router.delete('/:id', (req, res) => {
-//     // get the furniture id
-//     const furnitureId = req.params.id
-//     // delete the furniture
-//     Furniture.findByIdAndRemove(furnitureId)
-//         .then((furniture) => {
-//            return furniture.updateOne(req.body.furniture)
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//             res.json({ error })
-//         })
-// })
+router.delete('/:id', (req, res) => {
+    // get the furniture id
+    const furnitureId = req.params.id
+    // delete the furniture
+    Furniture.findByIdAndRemove(furnitureId)
+        .then(() => res.sendStatus(204))
+        .catch((error) => {
+            console.log(error)
+            res.json({ error })
+        })
+})
 ////////////////////////////////////////////
 // Export the Router
 ////////////////////////////////////////////
