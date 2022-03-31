@@ -35,27 +35,23 @@ router.get('/', (req, res) => {
 // SHOW
 // GET /furniture/624470c12ed7079ead53d4df
 
-// router.get('/:id', (req, res) => {
-//     // first, we need to get the id
-//     const furnitureId = req.params.id
-//     // then we can find furniture by its id
-//     Furniture.findById(furnitureId)
-//         .then((furniture) => {
-//             console.log('the furniture we got\n', furniture)
-//              .then(furniture => res.status(200).json({ furniture: furniture.toObject() }))
-//         })
-//         // if there is an error, show that instead
-//         .catch((err) => {
-//             console.log(err)
-//             res.json({ err })
-//         })
-// })
+router.get('/:id', (req, res) => {
+    // first, we need to get the id
+    const furnitureId = req.params.id
+    // then we can find furniture by its id
+    Furniture.findById(furnitureId)
+        .then(furniture => res.status(200).json({ furniture: furniture.toObject() }))
+        // if there is an error, show that instead
+        .catch((err) => {
+            console.log(err)
+            res.json({ err })
+        })
+})
+
 
 // CREATE
 // POST /furniture
 router.post('/', (req, res) => {
-    console.log('the body', req.body)
-
     Furniture.create(req.body)
         .then((furniture) => {
             console.log('this was returned from create', furniture)
