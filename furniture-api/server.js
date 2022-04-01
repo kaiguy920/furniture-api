@@ -11,6 +11,7 @@ const cors = require('cors')
 const FurnitureRouter = require('./routes/furniture')
 const HomeRouter = require('./routes/home')
 
+// clientDevPort is where client application is (front end)
 const clientDevPort = 3000
 
 const db = require('./config/db')
@@ -22,7 +23,7 @@ mongoose.connect(db, {
 // Create our express application object
 ////////////////////////////////////////////
 const app = express()
-
+// this allows our back end to talk to our front end & vice versa
 app.use(
     cors({
         origin: process.env.CLIENT_ORIGIN || `http://localhost:${clientDevPort}`,
@@ -63,6 +64,7 @@ app.use('/', HomeRouter)
 ////////////////////////////////////////////
 // Server Listener
 ////////////////////////////////////////////
+// this port is going to be the port for the backend
 const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`app is listening on port: ${PORT}`)

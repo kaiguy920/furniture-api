@@ -63,27 +63,6 @@ router.post('/', (req, res) => {
         })
 })
 
-
-// edit route -> GET that takes us to the edit form view
-// router.get('/:id/edit', (req, res) => {
-//     // we need to get the id
-//     const fruitId = req.params.id
-//     // find the fruit
-//     Fruit.findById(fruitId)
-//         // -->render if there is a fruit
-//         .then((fruit) => {
-//             console.log('edit froot', fruit)
-//             const username = req.session.username
-//             const loggedIn = req.session.loggedIn
-//             res.render('fruits/edit', { fruit, username, loggedIn })
-//         })
-//         // -->error if no fruit
-//         .catch((err) => {
-//             console.log(err)
-//             res.json(err)
-//         })
-// })
-
 // UPDATE
 // PATCH /furniture/624470c12ed7079ead53d4df
 
