@@ -67,8 +67,11 @@ router.post('/', (req, res) => {
 // PATCH /furniture/624470c12ed7079ead53d4df
 
 router.patch('/:id', (req, res) => {
-    const furnitureId = req.params.id
-    Furniture.findByIdAndUpdate(furnitureId, req.body, { new: true })
+    console.log("update req.body", req.body);
+    const furnitureId = req.body.furniture._id
+    console.log("furniture id", furnitureId);
+    const { type, roomLocation, material, accomodates } = req.body.furniture
+    Furniture.findByIdAndUpdate(furnitureId, { type, roomLocation, material, accomodates }, { new: true })
         .then(() => res.sendStatus(204))
         .catch((error) => res.json(error))
 })
