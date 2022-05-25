@@ -8,8 +8,8 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 // we need to require our routers
-const FurnitureRouter = require('./routes/furniture')
-const HomeRouter = require('./routes/home')
+const FurnitureRouter = require('./app/routes/furniture')
+const HomeRouter = require('./app/routes/home')
 
 // clientDevPort is where client application is (front end)
 const clientDevPort = 3000
@@ -40,25 +40,6 @@ app.use(express.urlencoded({ extended: true }))
 // send all '/furniture' routes to the Furniture Router
 app.use('/furniture', FurnitureRouter)
 app.use('/', HomeRouter)
-
-// old home, now we're using homerouter
-// app.get('/', (req, res) => {
-//     res.send('your server is running, better go catch it')
-// })
-
-// app.post('/furniture', (req, res) => {
-
-//     // Furniture.create(req.body.furniture)
-//     console.log('the body', req.body)
-//     // .then((furniture) => {
-//     //     console.log('this was returned from create', furniture)
-//     //     res.status(201).json({ furniture: furniture.toObject() })
-//     // })
-//     // .catch((err) => {
-//     //     console.log(err)
-//     //     res.json({ err })
-//     // })
-// })
 
 
 ////////////////////////////////////////////
