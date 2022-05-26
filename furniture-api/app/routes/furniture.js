@@ -52,7 +52,8 @@ router.get('/:id', (req, res) => {
 // CREATE
 // POST /furniture
 router.post('/', (req, res) => {
-    Furniture.create(req.body)
+    console.log('req.body.furniture', req.body.furniture)
+    Furniture.create(req.body.furniture)
         .then((furniture) => {
             console.log('this was returned from create', furniture)
             res.status(201).json({ furniture: furniture.toObject() })
