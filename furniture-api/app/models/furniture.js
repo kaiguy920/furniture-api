@@ -13,7 +13,7 @@ const { Schema, model } = mongoose
 // make our furniture schema
 const furnitureSchema = new Schema({
     type: { type: String },
-    roomLocation: { type: String },
+    roomLocation: { type: String, enum: ["living room", "bedroom", "kitchen", "bathroom", "dining room", "office", "library", "spare room"] },
     material: { type: String },
     accomodates: { type: Number }
 })
